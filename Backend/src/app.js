@@ -40,7 +40,7 @@ app.use(express.urlencoded({extended:true , limit: "16kb"}));
 app.use(cookieParser());
 app.use("/api/v1/user",userrouter);
 app.use(errorHandler);
-app.all("*", (req, res) => {
+app.use((req, res) => {
     res.status(404).json({ message: "Not Found" });
 });
 export default app;
